@@ -5,4 +5,4 @@ const HomeContainer = styled.div`
   text-align: center;
 `
 
-export const HomePage = () => <HomeContainer>Home page</HomeContainer>
+export const HomePage = () => <HomeContainer>Home page teste</HomeContainer>
