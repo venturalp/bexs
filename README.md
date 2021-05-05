@@ -1,10 +1,10 @@
 | Statements | Branches | Functions | Lines |
 | --- | --- | --- | --- |
-| ![Statements](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
+| ![Statements](#statements#) | ![Branches](#branches#) | ![Functions](#functions#) | ![Lines](#lines#) |
 
 ---
 
-# 🦸‍♂️ Luizalabs Marvel Challenge
+# Bexs Challenge
 
 ## 🛠 Stack
 
@@ -69,7 +69,7 @@ After that, the application will open and run at http://localhost:3000
 
 This project uses Prettier to auto format code, following Eslint rules (based on [airbnb rules](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)). For those who are using VSCode, this repository already has a vscode config versionated to be easily used.
 
-The project is all set with alias to make things easier when it comes to importing files and modules. One can find this settings inside `package.json`, `jest.config.js`, `jsconfig.json`, `webpack.config.js` and `.esling.js` files. Find more about [here](https://nimblewebdeveloper.com/blog/absolute-alias-imports-in-javascript-vscode)
+The project is all set with alias to make things easier when it comes to importing files and modules. One can find this settings inside `package.json`, `jest.config.js`, `jsconfig.json`, `webpack.config.js` and `.eslintrc.js` files. Find more about [here](https://nimblewebdeveloper.com/blog/absolute-alias-imports-in-javascript-vscode)
 
 ## 📋 Tests
 
@@ -103,10 +103,7 @@ Ok, but if one wants a different return for a specific request, what can one do?
 import { server, rest } from 'Commons/tests/Tests.MockServer'
 
 server.use(
-  rest.get(
-    `https://developer.marvel.com/v1/public/characters`,
-    (req, res, ctx) => res(ctx.status(400)),
-  ),
+  rest.get(`https://foo.bar/api`, (req, res, ctx) => res(ctx.status(400))),
 )
 ```
 
@@ -124,4 +121,4 @@ For global loading feedbacks (a loading over all the application), one can pass 
 
 ## 📝 Commit convention
 
-This project follows [Angular commit convention](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-guidelines) for commit patterns. If one is familiar with it just follow it, otherwise [Commitizen CLI](https://github.com/commitizen/cz-cli) can be used to commit changes, remember, one first needs to stage changes before committing, and in order to commit one can use the script `yarn cz` to run Commitizen CLI and follow the wizard/helper mode. The project also uses [husky](https://github.com/typicode/husky) to handle a _pre-commit_ hook which will run tests before allowing the commit, if one doesn't want to run tests on a commit, use the parameter `--no-verify` on the commit command.
+This project follows [Angular commit convention](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-guidelines) for commit patterns. The project also uses [husky](https://github.com/typicode/husky) to handle a _pre-commit_ hook which will run tests before allowing the commit, if one doesn't want to run tests on a commit, use the parameter `--no-verify` on the commit command.
