@@ -4,7 +4,7 @@
 
 ---
 
-# Bexs Challenge
+# ![Bexs](docs/images/bexs.png 'Bexs') Bexs Challenge
 
 ## 🛠 Stack
 
