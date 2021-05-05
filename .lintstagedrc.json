@@ -1,0 +1,5 @@
+{
+  "*.spec.{js,jsx}": [
+      "yarn test:all"
+  ]
+}
