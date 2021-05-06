@@ -1,5 +1,6 @@
 {
   "*.spec.{js,jsx}": [
-      "yarn test:all"
+      "yarn test:all",
+      "yarn coverage"
   ]
 }
