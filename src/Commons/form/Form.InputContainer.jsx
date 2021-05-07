@@ -5,9 +5,18 @@ import {
   InputContainerStyle,
 } from './Form.InputContainer.style'
 
-export const InputContainer = ({ error, children, placeholder }) => (
+export const InputContainer = ({
+  error,
+  children,
+  placeholder,
+  customLabel,
+}) => (
   <InputContainerStyle>
-    <Input placeholder={placeholder} {...children.props}>
+    <Input
+      placeholder={placeholder}
+      customLabel={customLabel}
+      {...children.props}
+    >
       {children}
     </Input>
     <InputErrorMessage>{error}</InputErrorMessage>

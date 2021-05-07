@@ -8,9 +8,9 @@ const InputHolder = styled(ClickOutside)`
   margin-top: 12px;
 `
 
-const Label = styled.p`
+const Label = styled.div`
   white-space: nowrap;
-  color: ${props => props.theme.textDisabled};
+  color: ${props => props.theme.disabledColor};
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -25,7 +25,7 @@ const Label = styled.p`
     `}
 `
 
-export const Input = ({ placeholder, children }) => {
+export const Input = ({ placeholder, customLabel, children }) => {
   const inputRef = useRef()
   const [hasContent, setHasContent] = useState(false)
   const [isFocused, setIsFocused] = useState(false)
@@ -35,6 +35,7 @@ export const Input = ({ placeholder, children }) => {
   }
 
   useEffect(() => {
+    console.log(customLabel)
     setHasContent(!!inputRef?.current?.value)
   }, [inputRef?.current?.value])
 
@@ -44,7 +45,7 @@ export const Input = ({ placeholder, children }) => {
       onClickOutside={() => setIsFocused(false)}
     >
       <Label hasContent={hasContent} isFocused={isFocused}>
-        {placeholder}
+        {customLabel || placeholder}
       </Label>
       {React.cloneElement(children, {
         ...children.props,

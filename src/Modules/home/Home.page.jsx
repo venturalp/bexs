@@ -1,24 +1,33 @@
-import { InputContainer } from 'Commons/form/Form.InputContainer'
 import React from 'react'
 import styled from 'styled-components'
+import Arrow from 'Assets/arrow.svg'
+import { CheckoutContainer } from 'Modules/checkout/Checkout.Container'
 
 const HomeContainer = styled.div`
-  text-align: center;
+  display: grid;
+  margin: 0 auto;
+  max-width: 96%;
+  margin-top: 65px;
+  grid-template-columns: 7fr 3fr;
+  grid-column-gap: 15px;
+  & > div {
+    background-color: #fff;
+  }
+  @media screen and (min-width: 1400px) {
+    grid-template-columns: 1024px 3fr;
+    max-width: 1366px;
+  }
+`
+
+const CvvInfo = styled(Arrow)`
+  fill: red;
+  width: 24px;
+  height: 24px;
 `
 
 export const HomePage = () => (
   <HomeContainer>
-    <InputContainer placeholder="teste de label">
-      <input defaultValue="teste" />
-    </InputContainer>
-    <InputContainer placeholder="placeholder de select">
-      <select defaultValue="">
-        <option value="" disabled>
-          {' '}
-        </option>
-        <option value="foo">foo</option>
-        <option value="bar">bar</option>
-      </select>
-    </InputContainer>
+    <CheckoutContainer />
+    <div>resumo</div>
   </HomeContainer>
 )

@@ -9,6 +9,7 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     color: ${props => props.theme.text};
+    background-color: ${props => props.theme.background};
     p, h1, h2, h3, h4, h5 {
       padding: 0;
       margin: 0;
