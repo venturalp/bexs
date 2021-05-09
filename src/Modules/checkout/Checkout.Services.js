@@ -6,7 +6,7 @@ export const useCheckoutServices = () => {
   return {
     doCheckout: async data =>
       axios
-        .post('/checkout', data, { showLoading: true })
+        .post('/pagar', data, { showLoading: true })
         .then(() => ({
           success: true,
           msg: 'Checkout efetuado com sucesso',

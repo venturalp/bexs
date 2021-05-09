@@ -5,7 +5,7 @@ const handlers = [
     res(ctx.json({ success: true })),
   ),
   rest.post(
-    'https://60981e24e48ec00017873616.mockapi.io/api/bexs/checkout',
+    'https://60981e24e48ec00017873616.mockapi.io/api/bexs/pagar',
     (req, res, ctx) => res(ctx.status(200)),
   ),
 ]
