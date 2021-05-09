@@ -32,9 +32,11 @@
     "axios": "^0.21.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-hook-form": "^7.5.0",
     "react-loading": "^2.0.3",
     "react-router-dom": "^5.1.2",
     "styled-components": "^5.2.1",
+    "yup": "^0.32.9",
     "zustand": "^2.2.3"
   },
   "devDependencies": {

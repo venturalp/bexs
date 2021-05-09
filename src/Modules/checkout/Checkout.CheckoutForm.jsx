@@ -4,6 +4,7 @@ import React from 'react'
 import IcoInfo from 'Assets/ico-info.svg'
 import { CVVInfoWrapper, FormWrapper } from './Checkout.CheckoutForm.style'
 import { Step } from 'Commons/steps/Steps.Step'
+import { useForm } from 'react-hook-form'
 
 const CVVInfo = () => (
   <CVVInfoWrapper>
@@ -13,6 +14,12 @@ const CVVInfo = () => (
 )
 
 export const CheckoutForm = ({ updateCardInfo }) => {
+  const { register, handleSubmit } = useForm({ mode: 'onBlur' })
+
+  const onSubmit = data => {
+    console.log(data)
+  }
+
   const handleChange = e => {
     const { name, value } = e.currentTarget || {}
     if (['cardName', 'cardNumber', 'cvv', 'expiration'].includes(name)) {
@@ -21,7 +28,7 @@ export const CheckoutForm = ({ updateCardInfo }) => {
   }
 
   return (
-    <FormWrapper>
+    <FormWrapper onSubmit={handleSubmit(onSubmit)}>
       <header>
         <Step step={1} label="Carrinho" checked />
         <Step step={2} label="Pagamento" />
@@ -33,6 +40,7 @@ export const CheckoutForm = ({ updateCardInfo }) => {
         fullWidth
         onChange={handleChange}
         error="teste"
+        {...register('cardNumber')}
       >
         <input />
       </InputContainer>
@@ -41,6 +49,7 @@ export const CheckoutForm = ({ updateCardInfo }) => {
         placeholder="Nome (igual ao cartão)"
         fullWidth
         onChange={handleChange}
+        {...register('cardName')}
       >
         <input />
       </InputContainer>
@@ -50,6 +59,7 @@ export const CheckoutForm = ({ updateCardInfo }) => {
           placeholder="Validade"
           fullWidth
           onChange={handleChange}
+          {...register('expiration')}
         >
           <input />
         </InputContainer>
@@ -61,11 +71,17 @@ export const CheckoutForm = ({ updateCardInfo }) => {
           onFocus={() => updateCardInfo({ isFront: false })}
           onBlur={() => updateCardInfo({ isFront: true })}
           onChange={handleChange}
+          {...register('cvv')}
         >
           <input />
         </InputContainer>
       </div>
-      <InputContainer name="instalments" placeholder="Parcelas" fullWidth>
+      <InputContainer
+        name="instalments"
+        placeholder="Parcelas"
+        fullWidth
+        {...register('instalments')}
+      >
         <select defaultValue="">
           <option value="" disabled />
           <option value="1x">1x R$ 12.000,00 sem juros</option>
@@ -73,7 +89,7 @@ export const CheckoutForm = ({ updateCardInfo }) => {
         </select>
       </InputContainer>
       <footer>
-        <button type="button">Continuar</button>
+        <button type="submit">Continuar</button>
       </footer>
     </FormWrapper>
   )

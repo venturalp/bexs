@@ -59,8 +59,8 @@ export const InputBase = ({
 
   return (
     <InputHolder
-      onFocus={() => {
-        if (onFocus) onFocus()
+      onFocus={e => {
+        if (onFocus) onFocus(e)
         setIsFocused(true)
       }}
       onClickOutside={() => setIsFocused(false)}
@@ -73,12 +73,12 @@ export const InputBase = ({
         ...children.props,
         ref: inputRef,
         onChange: handleChange,
-        onBlur: () => {
-          if (onBlur) onBlur()
+        onBlur: e => {
+          if (onBlur) onBlur(e)
           setIsFocused(false)
         },
-        onFocus: () => {
-          if (onFocus) onFocus()
+        onFocus: e => {
+          if (onFocus) onFocus(e)
           setIsFocused(true)
         },
         ...props,
