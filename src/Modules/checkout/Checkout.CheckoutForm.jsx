@@ -74,7 +74,11 @@ export const CheckoutForm = ({ updateCardInfo }) => {
       </InputContainer>
       <div className="row">
         <ReactInputMask
-          mask="99/99"
+          mask="89/99"
+          formatChars={{
+            9: '[0-9]',
+            8: '[0-1]',
+          }}
           {...register('expiration')}
           onChange={handleChange}
         >
@@ -116,6 +120,7 @@ export const CheckoutForm = ({ updateCardInfo }) => {
         placeholder="Parcelas"
         fullWidth
         {...register('instalments')}
+        error={errors?.instalments?.message}
       >
         <select defaultValue="">
           <option value="" disabled />
