@@ -2,8 +2,12 @@ import styled from 'styled-components'
 
 const InputErrorMessage = styled.p`
   color: ${props => props.theme.error};
-  font-size: ${props => props.theme.pxToRem(13)};
-  line-height: ${props => props.theme.pxToRem(22)};
+  font-size: ${props => props.theme.pxToRem(11)};
+  line-height: ${props => props.theme.pxToRem(17)};
+  @media screen and (min-width: ${props => props.theme.screens.tablet}px) {
+    font-size: ${props => props.theme.pxToRem(13)};
+    line-height: ${props => props.theme.pxToRem(22)};
+  }
 `
 
 const InputFeedbackMessage = styled(InputErrorMessage)`

@@ -9,7 +9,7 @@ export const Strip = styled.div`
 
 export const CartContainerWrapper = styled.div`
   background-color: #fff;
-  padding: 20px 20px 52px;
+  padding: 20px 4% 52px;
   .title {
     ${Strip} {
       width: 78%;
@@ -27,6 +27,9 @@ export const CartContainerWrapper = styled.div`
         width: 20%;
       }
     }
+  }
+  @media screen and (min-width: ${props => props.theme.screens.tablet}px) {
+    padding: 20px 20px 52px;
   }
 `
 

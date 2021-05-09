@@ -10,6 +10,7 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     color: ${props => props.theme.text};
+    overflow-x: hidden;
     background-color: ${props => props.theme.background};
     p, h1, h2, h3, h4, h5 {
       padding: 0;
@@ -20,13 +21,16 @@ export const GlobalStyles = createGlobalStyle`
       color: ${props => props.theme.text};
       appearance: none;
       border-bottom: 1.5px solid ${props => props.theme.disabledColor};
-      font-size: ${props => props.theme.pxToRem(17)};
+      font-size: ${props => props.theme.pxToRem(14)};
       padding: 5px 0px;
       option {
         color: ${props => props.theme.text};
       }
       &:focus {
         outline: none;
+      }
+      @media screen and (min-width: ${props => props.theme.screens.tabletV}px) {
+        font-size: ${props => props.theme.pxToRem(17)};
       }
     }
     select {
@@ -41,8 +45,8 @@ export const GlobalStyles = createGlobalStyle`
       text-transform: uppercase;
       padding: 15px 20px;
       min-width: 246px;
-      font-size: ${props => props.theme.pxToRem(17)};
-      line-height: ${props => props.theme.pxToRem(22)};
+      font-size: ${props => props.theme.pxToRem(15)};
+      line-height: ${props => props.theme.pxToRem(20)};
       border-radius: 10px;
       appearance: none;
       border: 0;
@@ -50,6 +54,10 @@ export const GlobalStyles = createGlobalStyle`
       &:focus {
         outline: none;
         box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+      }
+      @media screen and (min-width: ${props => props.theme.screens.tabletV}px) {
+        font-size: ${props => props.theme.pxToRem(17)};
+        line-height: ${props => props.theme.pxToRem(22)};
       }
     }
   }

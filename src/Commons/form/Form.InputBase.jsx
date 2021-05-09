@@ -21,7 +21,7 @@ const InputHolder = styled(ClickOutside)`
 const Label = styled.div`
   white-space: nowrap;
   color: ${props => props.theme.disabledColor};
-  font-size: ${props => props.theme.pxToRem(17)};
+  font-size: ${props => props.theme.pxToRem(14)};
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -34,6 +34,9 @@ const Label = styled.div`
       transform: scale(0.7) translateY(-100%);
       top: 0;
     `}
+  @media screen and (min-width: ${props => props.theme.screens.tabletV}px) {
+    font-size: ${props => props.theme.pxToRem(17)};
+  }
 `
 
 export const InputBase = React.memo(

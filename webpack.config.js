@@ -10,7 +10,7 @@ const TerserPlugin = require('terser-webpack-plugin')
 module.exports = () => {
   const distPath = 'dist'
 
-  const { ENVIRONMENT: environment = 'prd' } = process.env
+  const { ENVIRONMENT: environment = 'dev' } = process.env
 
   const terserConfig = new TerserPlugin({
     test: /\.js(\?.*)?$/i,

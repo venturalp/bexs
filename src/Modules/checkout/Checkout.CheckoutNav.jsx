@@ -16,12 +16,18 @@ export const CheckoutNav = ({ cardInfo }) => (
           <CheckoutBackLink>
             <Arrow width={15} />
             <p>Alterar forma de pagamento</p>
+            <p>
+              <strong>Etapa 2 </strong>de 3
+            </p>
           </CheckoutBackLink>
           <CheckoutTitle>
             <div>
               <CardIcon />
             </div>
-            <h1>Adicione um novo cartão de crédito</h1>
+            <h1>
+              Adicione um novo <br />
+              cartão de crédito
+            </h1>
           </CheckoutTitle>
         </>
       ),

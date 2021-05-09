@@ -45,7 +45,7 @@ export const checkoutSchema = yup.object().shape({
         const valueMonth = parseInt(cleanValue.substr(0, 2), 10)
         const valueYear = parseInt(cleanValue.substr(2, 2), 10)
 
-        if ((valueMonth > month && valueYear <= year) || valueYear < year) {
+        if ((month > valueMonth && valueYear <= year) || valueYear < year) {
           return false
         }
 

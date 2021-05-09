@@ -22,9 +22,9 @@ export const FlipCard = ({
   cvv,
   ...props
 }) => {
-  const getPartialNumber = (value, part) =>
+  const getPartialNumber = (value = '', part) =>
     value.substr((part - 1) * 4, 4).padEnd(4, '*')
-  const getExpirationMask = value =>
+  const getExpirationMask = (value = '') =>
     value ? `${value.substr(0, 2)}/${value.substr(2, 2)}` : '__/___'
   const isBackFilled = () => cvv && cvv !== ''
   const isFrontFilled = () =>
@@ -60,7 +60,7 @@ export const FlipCard = ({
       <Card className="card-back" isBack isFilled={isBackFilled()}>
         <img src={CardBack} alt="card" className="card" />
         <img src={CardBackEmpty} alt="card" className="empty card" />
-        <CardBackInfo>{cvv.padEnd(3, '*')}</CardBackInfo>
+        <CardBackInfo>{(cvv || '').padEnd(3, '*')}</CardBackInfo>
       </Card>
     </CardHolder>
   )
