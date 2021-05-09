@@ -41,6 +41,8 @@ export const InputBase = ({
   customLabel,
   fullWidth,
   children,
+  onFocus,
+  onBlur,
   ...props
 }) => {
   const inputRef = useRef()
@@ -57,7 +59,10 @@ export const InputBase = ({
 
   return (
     <InputHolder
-      onFocus={() => setIsFocused(true)}
+      onFocus={() => {
+        if (onFocus) onFocus()
+        setIsFocused(true)
+      }}
       onClickOutside={() => setIsFocused(false)}
       fullWidth={fullWidth}
     >
@@ -68,7 +73,14 @@ export const InputBase = ({
         ...children.props,
         ref: inputRef,
         onChange: handleChange,
-        onFocus: () => setIsFocused(true),
+        onBlur: () => {
+          if (onBlur) onBlur()
+          setIsFocused(false)
+        },
+        onFocus: () => {
+          if (onFocus) onFocus()
+          setIsFocused(true)
+        },
         ...props,
       })}
     </InputHolder>
