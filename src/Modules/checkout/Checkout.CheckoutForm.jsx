@@ -25,7 +25,7 @@ export const CheckoutForm = ({ updateCardInfo }) => {
       <header>
         <Step step={1} label="Carrinho" checked />
         <Step step={2} label="Pagamento" />
-        <Step step={3} label="Confirmação" />
+        <Step step={3} label="Confirmação" last />
       </header>
       <InputContainer
         name="cardNumber"

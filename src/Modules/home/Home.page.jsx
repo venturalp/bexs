@@ -13,7 +13,6 @@ const HomeContainer = styled(Container)`
   grid-template-columns: 70% 30%;
   grid-column-gap: 15px;
   & > div {
-    background-color: #fff;
     min-height: 0px;
     min-width: 0px;
   }

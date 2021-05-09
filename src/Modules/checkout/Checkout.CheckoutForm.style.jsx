@@ -8,6 +8,7 @@ export const FormWrapper = styled.form`
   align-items: flex-start;
   padding: 53px 64px 50px 24%;
   width: 100%;
+  background-color: #fff;
   ${InputContainerStyle} {
     margin-bottom: 40px;
   }
@@ -25,6 +26,8 @@ export const FormWrapper = styled.form`
   header {
     display: flex;
     justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 64px;
   }
 `
 export const CVVInfoWrapper = styled.div`

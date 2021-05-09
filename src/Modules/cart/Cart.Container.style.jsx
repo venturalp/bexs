@@ -8,6 +8,7 @@ export const Strip = styled.div`
 `
 
 export const CartContainerWrapper = styled.div`
+  background-color: #fff;
   padding: 20px 20px 52px;
   .title {
     ${Strip} {
