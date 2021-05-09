@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import React, { forwardRef, useMemo } from 'react'
 import { InputBase } from './Form.InputBase'
 import {
   InputErrorMessage,
@@ -14,21 +14,25 @@ export const InputContainer = forwardRef(
       fullWidth,
       className,
       customLabel,
-
       ...props
     },
     ref,
   ) => (
     <InputContainerStyle className={className} fullWidth={fullWidth} ref={ref}>
-      <InputBase
-        placeholder={placeholder}
-        customLabel={customLabel}
-        fullWidth={fullWidth}
-        {...props}
-        {...children.props}
-      >
-        {children}
-      </InputBase>
+      {useMemo(
+        () => (
+          <InputBase
+            placeholder={placeholder}
+            customLabel={customLabel}
+            fullWidth={fullWidth}
+            {...props}
+            {...children.props}
+          >
+            {children}
+          </InputBase>
+        ),
+        [placeholder, customLabel, fullWidth, props, children],
+      )}
       <InputErrorMessage>{error}</InputErrorMessage>
     </InputContainerStyle>
   ),

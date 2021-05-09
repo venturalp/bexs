@@ -80,10 +80,10 @@ export const FlipCard = ({
         <img src={CardFront} alt="card" />
         <img src={CardFrontEmpty} alt="card" className="empty" />
         <CardNumber>
-          <p>{cardNumber.substr(0, 4).padEnd(4, '*')}</p>
-          <p>{cardNumber.substr(4, 4).padEnd(4, '*')}</p>
-          <p>{cardNumber.substr(8, 4).padEnd(4, '*')}</p>
-          <p>{cardNumber.substr(12, 4).padEnd(4, '*')}</p>
+          <p>{cardNumber.replace(/ |_/gim, '').substr(0, 4).padEnd(4, '*')}</p>
+          <p>{cardNumber.replace(/ |_/gim, '').substr(4, 4).padEnd(4, '*')}</p>
+          <p>{cardNumber.replace(/ |_/gim, '').substr(8, 4).padEnd(4, '*')}</p>
+          <p>{cardNumber.replace(/ |_/gim, '').substr(12, 4).padEnd(4, '*')}</p>
         </CardNumber>
       </Card>
       <Card className="card-back" isBack isFilled={isBackFilled()}>

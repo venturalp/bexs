@@ -1,3 +1,4 @@
+import { removeCardMask } from 'Commons/form/Form.Helpers'
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { CheckoutForm } from './Checkout.CheckoutForm'
@@ -20,7 +21,11 @@ export const CheckoutContainer = () => {
       <CheckoutNav cardInfo={cardInfo} />
       <CheckoutForm
         updateCardInfo={info => {
-          setCardInfo({ ...cardInfo, ...info })
+          setCardInfo({
+            ...cardInfo,
+            ...info,
+            cardNumber: removeCardMask(info.cardNumber),
+          })
         }}
       />
     </CheckoutContainerWrapper>

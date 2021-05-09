@@ -5,6 +5,10 @@ import IcoInfo from 'Assets/ico-info.svg'
 import { CVVInfoWrapper, FormWrapper } from './Checkout.CheckoutForm.style'
 import { Step } from 'Commons/steps/Steps.Step'
 import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import ReactInputMask from 'react-input-mask'
+import { checkoutSchema } from './Checkout.CheckoutForm.validate'
+import { CardMask } from 'Commons/card/Card.CardMask'
 
 const CVVInfo = () => (
   <CVVInfoWrapper>
@@ -14,7 +18,14 @@ const CVVInfo = () => (
 )
 
 export const CheckoutForm = ({ updateCardInfo }) => {
-  const { register, handleSubmit } = useForm({ mode: 'onBlur' })
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    mode: 'onBlur',
+    resolver: yupResolver(checkoutSchema),
+  })
 
   const onSubmit = data => {
     console.log(data)
@@ -34,47 +45,71 @@ export const CheckoutForm = ({ updateCardInfo }) => {
         <Step step={2} label="Pagamento" />
         <Step step={3} label="Confirmação" last />
       </header>
-      <InputContainer
-        name="cardNumber"
-        placeholder="Número do cartão"
-        fullWidth
-        onChange={handleChange}
-        error="teste"
+      <ReactInputMask
+        {...CardMask}
         {...register('cardNumber')}
+        onChange={handleChange}
       >
-        <input />
-      </InputContainer>
+        {props => (
+          <InputContainer
+            name="cardNumber"
+            placeholder="Número do cartão"
+            fullWidth
+            {...props}
+            error={errors?.cardNumber?.message}
+          >
+            <input />
+          </InputContainer>
+        )}
+      </ReactInputMask>
       <InputContainer
         name="cardName"
         placeholder="Nome (igual ao cartão)"
         fullWidth
         onChange={handleChange}
         {...register('cardName')}
+        error={errors?.cardName?.message}
       >
         <input />
       </InputContainer>
       <div className="row">
-        <InputContainer
-          name="expiration"
-          placeholder="Validade"
-          fullWidth
-          onChange={handleChange}
+        <ReactInputMask
+          mask="99/99"
           {...register('expiration')}
+          onChange={handleChange}
         >
-          <input />
-        </InputContainer>
-        <InputContainer
-          customLabel={<CVVInfo />}
-          name="cvv"
-          placeholder="CVV"
-          fullWidth
+          {props => (
+            <InputContainer
+              name="expiration"
+              placeholder="Validade"
+              fullWidth
+              {...props}
+              error={errors?.expiration?.message}
+            >
+              <input />
+            </InputContainer>
+          )}
+        </ReactInputMask>
+        <ReactInputMask
+          mask="999"
+          onChange={handleChange}
           onFocus={() => updateCardInfo({ isFront: false })}
           onBlur={() => updateCardInfo({ isFront: true })}
-          onChange={handleChange}
           {...register('cvv')}
         >
-          <input />
-        </InputContainer>
+          {props => (
+            <InputContainer
+              customLabel={<CVVInfo />}
+              name="cvv"
+              placeholder="CVV"
+              fullWidth
+              {...props}
+              error={errors?.cvv?.message}
+            >
+              <input />
+            </InputContainer>
+          )}
+        </ReactInputMask>
       </div>
       <InputContainer
         name="instalments"

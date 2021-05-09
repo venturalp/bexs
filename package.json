@@ -29,10 +29,12 @@
   },
   "homepage": "https://github.com/venturalp/bexs",
   "dependencies": {
+    "@hookform/resolvers": "^2.4.0",
     "axios": "^0.21.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hook-form": "^7.5.0",
+    "react-input-mask": "^2.0.4",
     "react-loading": "^2.0.3",
     "react-router-dom": "^5.1.2",
     "styled-components": "^5.2.1",
