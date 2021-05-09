@@ -7,4 +7,11 @@ export const mainTheme = {
   textShadow: '0px 1px 2px #000000B3',
   disabledColor: '#C9C9C9',
   error: '#EB5757',
+  screens: {
+    small: 400,
+    tabletV: 768,
+    tablet: 1024,
+    smallDesktop: 1280,
+    desktop: 1366,
+  },
 }

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import ArrowDown from 'Assets/arrow-down.png'
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -27,6 +28,25 @@ export const GlobalStyles = createGlobalStyle`
       &:focus {
         outline: none;
       }
+    }
+    select {
+      background-image: url('${ArrowDown}');
+      background-repeat: no-repeat;
+      background-position: right 6px center;
+      background-size: 18px;
+    }
+    button {
+      background-color: ${props => props.theme.mainColor};
+      color: ${props => props.theme.textContrast};
+      text-transform: uppercase;
+      padding: 15px 20px;
+      min-width: 246px;
+      font-size: ${props => props.theme.pxToRem(17)};
+      line-height: ${props => props.theme.pxToRem(22)};
+      border-radius: 10px;
+      appearance: none;
+      border: 0;
+      cursor: pointer;
     }
   }
 `

@@ -5,6 +5,7 @@ const InputContainerStyle = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  ${props => props.fullWidth && 'width: 100%'}
 `
 
 const InputErrorMessage = styled.p`

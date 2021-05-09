@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input } from './Form.InputBase'
+import { InputBase } from './Form.InputBase'
 import {
   InputErrorMessage,
   InputContainerStyle,
@@ -9,16 +9,21 @@ export const InputContainer = ({
   error,
   children,
   placeholder,
+  fullWidth,
+  className,
   customLabel,
+  ...props
 }) => (
-  <InputContainerStyle>
-    <Input
+  <InputContainerStyle className={className} fullWidth={fullWidth}>
+    <InputBase
       placeholder={placeholder}
       customLabel={customLabel}
+      fullWidth={fullWidth}
+      {...props}
       {...children.props}
     >
       {children}
-    </Input>
+    </InputBase>
     <InputErrorMessage>{error}</InputErrorMessage>
   </InputContainerStyle>
 )

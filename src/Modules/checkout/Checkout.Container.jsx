@@ -1,31 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import { CheckoutForm } from './Checkout.CheckoutForm'
 import { CheckoutNav } from './Checkout.CheckoutNav'
 
 const CheckoutContainerWrapper = styled.div`
   display: grid;
-  grid-template-columns: 3fr 7fr;
-  & nav {
-    padding-top: 53px;
-    padding-bottom: 30%;
-    background: linear-gradient(
-      -90deg,
-      rgba(255, 255, 255, 1) 0%,
-      rgba(255, 255, 255, 1) 16%,
-      ${props => props.theme.mainColor} 16%
-    );
-    color: ${props => props.theme.textContrast};
-    padding-left: 14%;
-  }
+  grid-template-columns: 34% 66%;
 `
 
 export const CheckoutContainer = () => {
-  console.log('')
+  const [cardInfo, setCardInfo] = useState({
+    isFront: true,
+    cardNumber: '',
+    cvv: '',
+  })
 
   return (
     <CheckoutContainerWrapper>
-      <CheckoutNav />
-      <div>Teste</div>
+      <CheckoutNav cardInfo={cardInfo} />
+      <CheckoutForm
+        updateCardInfo={info => {
+          setCardInfo({ ...cardInfo, ...info })
+        }}
+      />
     </CheckoutContainerWrapper>
   )
 }

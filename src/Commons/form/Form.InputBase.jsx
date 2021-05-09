@@ -1,16 +1,27 @@
 /* eslint-disable operator-linebreak */
-import { ClickOutside } from 'Commons/container/Container.ClickOutside'
+import { ClickOutside } from 'Commons/containers/Containers.ClickOutside'
 import React, { useEffect, useRef, useState } from 'react'
 import styled, { css } from 'styled-components'
 
 const InputHolder = styled(ClickOutside)`
   position: relative;
   margin-top: 12px;
+  ${props => props.fullWidth && 'width: 100%;'}
+  ${props =>
+    props.fullWidth &&
+    css`
+      input,
+      select,
+      textarea {
+        width: 100%;
+      }
+    `}
 `
 
 const Label = styled.div`
   white-space: nowrap;
   color: ${props => props.theme.disabledColor};
+  font-size: ${props => props.theme.pxToRem(17)};
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -25,24 +36,30 @@ const Label = styled.div`
     `}
 `
 
-export const Input = ({ placeholder, customLabel, children }) => {
+export const InputBase = ({
+  placeholder,
+  customLabel,
+  fullWidth,
+  children,
+  ...props
+}) => {
   const inputRef = useRef()
   const [hasContent, setHasContent] = useState(false)
   const [isFocused, setIsFocused] = useState(false)
 
   const handleChange = e => {
-    setHasContent(!!e.currentTarget.value)
+    setHasContent(!!e?.currentTarget?.value)
   }
 
   useEffect(() => {
-    console.log(customLabel)
     setHasContent(!!inputRef?.current?.value)
-  }, [inputRef?.current?.value])
+  }, [customLabel, inputRef?.current?.value])
 
   return (
     <InputHolder
       onFocus={() => setIsFocused(true)}
       onClickOutside={() => setIsFocused(false)}
+      fullWidth={fullWidth}
     >
       <Label hasContent={hasContent} isFocused={isFocused}>
         {customLabel || placeholder}
@@ -52,6 +69,7 @@ export const Input = ({ placeholder, customLabel, children }) => {
         ref: inputRef,
         onChange: handleChange,
         onFocus: () => setIsFocused(true),
+        ...props,
       })}
     </InputHolder>
   )

@@ -1,17 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
-import Arrow from 'Assets/arrow.svg'
-import { CheckoutContainer } from 'Modules/checkout/Checkout.Container'
 
-const HomeContainer = styled.div`
+import { CheckoutContainer } from 'Modules/checkout/Checkout.Container'
+import { CartContainer } from 'Modules/cart/Cart.Container'
+import { TemplateMaster } from 'Commons/templates/Templates.TemplateMaster'
+import { Container } from 'Commons/containers/Containers.Container'
+
+const HomeContainer = styled(Container)`
   display: grid;
   margin: 0 auto;
-  max-width: 96%;
   margin-top: 65px;
-  grid-template-columns: 7fr 3fr;
+  grid-template-columns: 70% 30%;
   grid-column-gap: 15px;
   & > div {
     background-color: #fff;
+    min-height: 0px;
+    min-width: 0px;
   }
   @media screen and (min-width: 1400px) {
     grid-template-columns: 1024px 3fr;
@@ -19,15 +23,11 @@ const HomeContainer = styled.div`
   }
 `
 
-const CvvInfo = styled(Arrow)`
-  fill: red;
-  width: 24px;
-  height: 24px;
-`
-
 export const HomePage = () => (
-  <HomeContainer>
-    <CheckoutContainer />
-    <div>resumo</div>
-  </HomeContainer>
+  <TemplateMaster>
+    <HomeContainer>
+      <CheckoutContainer />
+      <CartContainer />
+    </HomeContainer>
+  </TemplateMaster>
 )
