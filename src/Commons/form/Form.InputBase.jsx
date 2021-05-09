@@ -1,6 +1,6 @@
 /* eslint-disable operator-linebreak */
 import { ClickOutside } from 'Commons/containers/Containers.ClickOutside'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import styled, { css } from 'styled-components'
 
 const InputHolder = styled(ClickOutside)`
@@ -36,53 +36,60 @@ const Label = styled.div`
     `}
 `
 
-export const InputBase = ({
-  placeholder,
-  customLabel,
-  fullWidth,
-  children,
-  onFocus,
-  onBlur,
-  ...props
-}) => {
-  const inputRef = useRef()
-  const [hasContent, setHasContent] = useState(false)
-  const [isFocused, setIsFocused] = useState(false)
+export const InputBase = React.memo(
+  ({
+    placeholder,
+    customLabel,
+    fullWidth,
+    children,
+    onFocus,
+    onBlur,
+    ...props
+  }) => {
+    const inputRef = useRef()
+    const [hasContent, setHasContent] = useState(false)
+    const [isFocused, setIsFocused] = useState(false)
 
-  const handleChange = e => {
-    setHasContent(!!e?.currentTarget?.value)
-  }
+    const handleChange = e => {
+      setHasContent(!!e?.currentTarget?.value)
+    }
 
-  useEffect(() => {
-    setHasContent(!!inputRef?.current?.value)
-  }, [customLabel, inputRef?.current?.value])
+    useEffect(() => {
+      setHasContent(!!inputRef?.current?.value)
+    }, [customLabel, inputRef?.current?.value])
 
-  return (
-    <InputHolder
-      onFocus={e => {
-        if (onFocus) onFocus(e)
-        setIsFocused(true)
-      }}
-      onClickOutside={() => setIsFocused(false)}
-      fullWidth={fullWidth}
-    >
-      <Label hasContent={hasContent} isFocused={isFocused}>
-        {customLabel || placeholder}
-      </Label>
-      {React.cloneElement(children, {
-        ...children.props,
-        ref: inputRef,
-        onChange: handleChange,
-        onBlur: e => {
-          if (onBlur) onBlur(e)
-          setIsFocused(false)
-        },
-        onFocus: e => {
+    return (
+      <InputHolder
+        onFocus={e => {
           if (onFocus) onFocus(e)
           setIsFocused(true)
-        },
-        ...props,
-      })}
-    </InputHolder>
-  )
-}
+        }}
+        onClickOutside={() => setIsFocused(false)}
+        fullWidth={fullWidth}
+      >
+        {useMemo(
+          () => (
+            <Label hasContent={hasContent} isFocused={isFocused}>
+              {customLabel || placeholder}
+            </Label>
+          ),
+          [customLabel, placeholder, hasContent, isFocused],
+        )}
+        {React.cloneElement(children, {
+          ...children.props,
+          ref: inputRef,
+          onChange: handleChange,
+          onBlur: e => {
+            if (onBlur) onBlur(e)
+            setIsFocused(false)
+          },
+          onFocus: e => {
+            if (onFocus) onFocus(e)
+            setIsFocused(true)
+          },
+          ...props,
+        })}
+      </InputHolder>
+    )
+  },
+)

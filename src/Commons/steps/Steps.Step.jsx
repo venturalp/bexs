@@ -40,12 +40,14 @@ const StepWrapper = styled.div(
   `,
 )
 
-export const Step = ({ last = false, checked = false, step = 1, label }) => (
-  <StepWrapper last={last} checked={checked}>
-    <div className="bullet">
-      {checked ? <Check className="check" /> : <p>{step}</p>}
-    </div>
-    <p>{label}</p>
-    {!last && <Arrow className="arrow" />}
-  </StepWrapper>
+export const Step = React.memo(
+  ({ last = false, checked = false, step = 1, label }) => (
+    <StepWrapper last={last} checked={checked}>
+      <div className="bullet">
+        {checked ? <Check className="check" /> : <p>{step}</p>}
+      </div>
+      <p>{label}</p>
+      {!last && <Arrow className="arrow" />}
+    </StepWrapper>
+  ),
 )

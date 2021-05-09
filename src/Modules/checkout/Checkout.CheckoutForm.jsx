@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import { InputContainer } from 'Commons/form/Form.InputContainer'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import IcoInfo from 'Assets/ico-info.svg'
 import { CVVInfoWrapper, FormWrapper } from './Checkout.CheckoutForm.style'
 import { Step } from 'Commons/steps/Steps.Step'
@@ -9,6 +9,8 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import ReactInputMask from 'react-input-mask'
 import { checkoutSchema } from './Checkout.CheckoutForm.validate'
 import { CardMask } from 'Commons/card/Card.CardMask'
+import { useCheckoutServices } from './Checkout.Services'
+import { InputFeedbackMessage } from 'Commons/form/Form.InputContainer.style'
 
 const CVVInfo = () => (
   <CVVInfoWrapper>
@@ -22,21 +24,37 @@ export const CheckoutForm = ({ updateCardInfo }) => {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
   } = useForm({
     mode: 'onBlur',
     resolver: yupResolver(checkoutSchema),
   })
+  const [formFeedback, setFormFeedback] = useState({ success: false, msg: '' })
+  const { doCheckout } = useCheckoutServices()
+  const watchCardFields = watch()
 
-  const onSubmit = data => {
+  const onSubmit = async data => {
     console.log(data)
+    const res = await doCheckout(data)
+    setFormFeedback({
+      success: res.success,
+      msg: res.msg,
+    })
   }
 
-  const handleChange = e => {
-    const { name, value } = e.currentTarget || {}
-    if (['cardName', 'cardNumber', 'cvv', 'expiration'].includes(name)) {
-      updateCardInfo({ [name]: value })
-    }
-  }
+  useEffect(() => {
+    updateCardInfo({
+      cvv: watchCardFields.cvv,
+      cardName: watchCardFields.cardName,
+      cardNumber: watchCardFields.cardNumber,
+      expiration: watchCardFields.expiration,
+    })
+  }, [
+    watchCardFields.cvv,
+    watchCardFields.cardName,
+    watchCardFields.cardNumber,
+    watchCardFields.expiration,
+  ])
 
   return (
     <FormWrapper onSubmit={handleSubmit(onSubmit)}>
@@ -45,11 +63,7 @@ export const CheckoutForm = ({ updateCardInfo }) => {
         <Step step={2} label="Pagamento" />
         <Step step={3} label="Confirmação" last />
       </header>
-      <ReactInputMask
-        {...CardMask}
-        {...register('cardNumber')}
-        onChange={handleChange}
-      >
+      <ReactInputMask {...CardMask} {...register('cardNumber')}>
         {props => (
           <InputContainer
             name="cardNumber"
@@ -66,7 +80,6 @@ export const CheckoutForm = ({ updateCardInfo }) => {
         name="cardName"
         placeholder="Nome (igual ao cartão)"
         fullWidth
-        onChange={handleChange}
         {...register('cardName')}
         error={errors?.cardName?.message}
       >
@@ -80,7 +93,6 @@ export const CheckoutForm = ({ updateCardInfo }) => {
             8: '[0-1]',
           }}
           {...register('expiration')}
-          onChange={handleChange}
         >
           {props => (
             <InputContainer
@@ -96,10 +108,9 @@ export const CheckoutForm = ({ updateCardInfo }) => {
         </ReactInputMask>
         <ReactInputMask
           mask="999"
-          onChange={handleChange}
-          onFocus={() => updateCardInfo({ isFront: false })}
-          onBlur={() => updateCardInfo({ isFront: true })}
           {...register('cvv')}
+          onFocus={() => updateCardInfo({ ...watchCardFields, isFront: false })}
+          onBlur={() => updateCardInfo({ ...watchCardFields, isFront: true })}
         >
           {props => (
             <InputContainer
@@ -129,6 +140,9 @@ export const CheckoutForm = ({ updateCardInfo }) => {
         </select>
       </InputContainer>
       <footer>
+        <InputFeedbackMessage success={formFeedback?.success}>
+          {formFeedback?.msg}
+        </InputFeedbackMessage>
         <button type="submit">Continuar</button>
       </footer>
     </FormWrapper>

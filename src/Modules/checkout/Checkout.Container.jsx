@@ -1,4 +1,8 @@
-import { removeCardMask } from 'Commons/form/Form.Helpers'
+import {
+  removeCardMask,
+  removeDateMask,
+  removeNumberMask,
+} from 'Commons/form/Form.Helpers'
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { CheckoutForm } from './Checkout.CheckoutForm'
@@ -14,6 +18,8 @@ export const CheckoutContainer = () => {
     isFront: true,
     cardNumber: '',
     cvv: '',
+    expiration: '',
+    cardName: '',
   })
 
   return (
@@ -25,6 +31,8 @@ export const CheckoutContainer = () => {
             ...cardInfo,
             ...info,
             cardNumber: removeCardMask(info.cardNumber),
+            expiration: removeDateMask(info.expiration),
+            cvv: removeNumberMask(info.cvv),
           })
         }}
       />

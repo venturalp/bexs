@@ -6,6 +6,10 @@ const InputErrorMessage = styled.p`
   line-height: ${props => props.theme.pxToRem(22)};
 `
 
+const InputFeedbackMessage = styled(InputErrorMessage)`
+  color: ${props => (props.success ? props.theme.success : props.theme.error)};
+`
+
 const InputContainerStyle = styled.div`
   display: flex;
   flex-direction: column;
@@ -20,4 +24,4 @@ const InputContainerStyle = styled.div`
   }
 `
 
-export { InputContainerStyle, InputErrorMessage }
+export { InputContainerStyle, InputErrorMessage, InputFeedbackMessage }

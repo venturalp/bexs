@@ -6,9 +6,10 @@ export const useCheckoutServices = () => {
   return {
     doCheckout: async data =>
       axios
-        .post('/checkout', data)
+        .post('/checkout', data, { showLoading: true })
         .then(() => ({
           success: true,
+          msg: 'Checkout efetuado com sucesso',
         }))
         .catch(() => ({ success: false, msg: 'Erro ao efetuar checkout' })),
   }
