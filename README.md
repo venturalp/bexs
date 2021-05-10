@@ -6,6 +6,8 @@
 
 # ![Bexs](docs/images/bexs.png 'Bexs') Bexs Challenge
 
+Online: [https://bexs-venturalp.netlify.app/](https://bexs-venturalp.netlify.app/)
+
 ## 🛠 Stack
 
 Main tools used in this project:
