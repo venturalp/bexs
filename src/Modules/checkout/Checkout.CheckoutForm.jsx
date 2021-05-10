@@ -34,7 +34,6 @@ export const CheckoutForm = ({ updateCardInfo }) => {
   const watchCardFields = watch()
 
   const onSubmit = async data => {
-    console.log(data)
     const res = await doCheckout(data)
     setFormFeedback({
       success: res.success,
@@ -71,6 +70,7 @@ export const CheckoutForm = ({ updateCardInfo }) => {
             fullWidth
             {...props}
             error={errors?.cardNumber?.message}
+            data-testid="cardNumber"
           >
             <input />
           </InputContainer>
@@ -82,6 +82,7 @@ export const CheckoutForm = ({ updateCardInfo }) => {
         fullWidth
         {...register('cardName')}
         error={errors?.cardName?.message}
+        data-testid="cardName"
       >
         <input />
       </InputContainer>
@@ -101,6 +102,7 @@ export const CheckoutForm = ({ updateCardInfo }) => {
               fullWidth
               {...props}
               error={errors?.expiration?.message}
+              data-testid="expiration"
             >
               <input />
             </InputContainer>
@@ -120,6 +122,7 @@ export const CheckoutForm = ({ updateCardInfo }) => {
               fullWidth
               {...props}
               error={errors?.cvv?.message}
+              data-testid="cvv"
             >
               <input />
             </InputContainer>
@@ -132,6 +135,7 @@ export const CheckoutForm = ({ updateCardInfo }) => {
         fullWidth
         {...register('instalments')}
         error={errors?.instalments?.message}
+        data-testid="instalments"
       >
         <select defaultValue="">
           <option value="" disabled />

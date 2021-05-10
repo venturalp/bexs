@@ -15,8 +15,8 @@ import {
 } from './Card.FlipCard.style'
 
 export const FlipCard = ({
-  isFront = true,
-  cardNumber = '',
+  isFront,
+  cardNumber,
   cardName,
   expiration,
   cvv,

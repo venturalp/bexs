@@ -14,10 +14,12 @@ const HomeContainer = styled(Container)(
     margin-top: 15px;
     margin-bottom: 15px;
     grid-template-rows: auto;
-    grid-row-gap: 15px;
     & > div {
       min-height: 0px;
       min-width: 0px;
+      &:first-child {
+        margin-bottom: 15px;
+      }
     }
     @media screen and (min-width: ${theme.screens.smallDesktop}px) {
       display: grid;
@@ -27,6 +29,11 @@ const HomeContainer = styled(Container)(
       grid-column-gap: 15px;
       grid-template-columns: 1024px 3fr;
       max-width: 1366px;
+      & > div {
+        &:first-child {
+          margin-bottom: 0px;
+        }
+      }
     }
   `,
 )

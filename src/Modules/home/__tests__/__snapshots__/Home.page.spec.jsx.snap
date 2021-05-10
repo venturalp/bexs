@@ -1,19 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test app render test app 1`] = `
+exports[`test module home render home 1`] = `
 <DocumentFragment>
-   
   <div
-    class="sc-dJjZJu bfCsvw"
+    class="sc-ieebsP fZACKJ"
   >
     <div
-      class="sc-ieebsP isGsxv"
+      class="sc-bkkfTU fqznwK"
     >
       <div>
         <store-logo.svg />
       </div>
       <nav
-        class="sc-hGPAah eAqHPF"
+        class="sc-dJjZJu goZwhP"
       >
         <a
           href="#"
@@ -34,16 +33,16 @@ exports[`test app render test app 1`] = `
     </div>
   </div>
   <div
-    class="sc-ieebsP isGsxv sc-dlVyqM bsyFon"
+    class="sc-bkkfTU fqznwK sc-hGPAah iAKuiz"
   >
     <div
-      class="sc-hBURRC gKKyyN"
+      class="sc-ksdxAp fQhLgg"
     >
       <nav
-        class="sc-egiSv jeSsPB"
+        class="sc-crHlIS iEajBI"
       >
         <a
-          class="sc-bqiQRQ eQcEBi"
+          class="sc-egiSv bbPwJg"
         >
           <arrow.svg
             width="15"
@@ -59,7 +58,7 @@ exports[`test app render test app 1`] = `
           </p>
         </a>
         <div
-          class="sc-ksdxAp ePVwLT"
+          class="sc-bqiQRQ hnufKS"
         >
           <div>
             <card-icon.svg />
@@ -71,7 +70,7 @@ exports[`test app render test app 1`] = `
           </h1>
         </div>
         <div
-          class="sc-kDThTU bbRPKK"
+          class="sc-jrQzUz cOpTHM"
         >
           <img
             alt="img-hidden"
@@ -79,7 +78,7 @@ exports[`test app render test app 1`] = `
             src="card-front.png"
           />
           <div
-            class="sc-jrQzUz KPBjf card-front"
+            class="sc-pVTma egYZTx card-front"
           >
             <img
               alt="card"
@@ -92,14 +91,14 @@ exports[`test app render test app 1`] = `
               src="card-front-empty.png"
             />
             <div
-              class="sc-iqsfdx eROJlI"
+              class="sc-kDThTU dywPpr"
             >
               <img
                 alt="card-logo"
                 src="visa-logo.png"
               />
               <div
-                class="sc-pVTma drqZFs"
+                class="sc-furvIG iJqnIr"
               >
                 <p>
                   ****
@@ -125,7 +124,7 @@ exports[`test app render test app 1`] = `
             </div>
           </div>
           <div
-            class="sc-jrQzUz fKPhgM card-back"
+            class="sc-pVTma exfbzi card-back"
           >
             <img
               alt="card"
@@ -138,7 +137,7 @@ exports[`test app render test app 1`] = `
               src="card-back-empty.png"
             />
             <p
-              class="sc-crHlIS ffIRcl"
+              class="sc-iqsfdx gtxooL"
             >
               ***
             </p>
@@ -146,11 +145,11 @@ exports[`test app render test app 1`] = `
         </div>
       </nav>
       <form
-        class="sc-gKckTs eviGaR"
+        class="sc-jRQAMF edUICD"
       >
         <header>
           <div
-            class="sc-furvIG kbTTBE"
+            class="sc-iCfLBT lXOVz"
           >
             <div
               class="bullet"
@@ -167,7 +166,7 @@ exports[`test app render test app 1`] = `
             />
           </div>
           <div
-            class="sc-furvIG kmOIvg"
+            class="sc-iCfLBT iGYtDr"
           >
             <div
               class="bullet"
@@ -184,7 +183,7 @@ exports[`test app render test app 1`] = `
             />
           </div>
           <div
-            class="sc-furvIG kmOIvg"
+            class="sc-iCfLBT iGYtDr"
           >
             <div
               class="bullet"
@@ -199,13 +198,13 @@ exports[`test app render test app 1`] = `
           </div>
         </header>
         <div
-          class="sc-jRQAMF iiFKOE"
+          class="sc-eCImvq iFSVdj"
         >
           <div
-            class="sc-gsDJrp jspQbs"
+            class="sc-bdvvaa iLYldS"
           >
             <div
-              class="sc-dkPtyc bkijIn"
+              class="sc-gsDJrp kxnSMu"
             >
               Número do cartão
             </div>
@@ -215,17 +214,17 @@ exports[`test app render test app 1`] = `
             />
           </div>
           <p
-            class="sc-hKwCoD fgeTWz"
+            class="sc-dkPtyc fKvQaK"
           />
         </div>
         <div
-          class="sc-jRQAMF iiFKOE"
+          class="sc-eCImvq iFSVdj"
         >
           <div
-            class="sc-gsDJrp jspQbs"
+            class="sc-bdvvaa iLYldS"
           >
             <div
-              class="sc-dkPtyc bkijIn"
+              class="sc-gsDJrp kxnSMu"
             >
               Nome (igual ao cartão)
             </div>
@@ -235,20 +234,20 @@ exports[`test app render test app 1`] = `
             />
           </div>
           <p
-            class="sc-hKwCoD fgeTWz"
+            class="sc-dkPtyc fKvQaK"
           />
         </div>
         <div
           class="row"
         >
           <div
-            class="sc-jRQAMF iiFKOE"
+            class="sc-eCImvq iFSVdj"
           >
             <div
-              class="sc-gsDJrp jspQbs"
+              class="sc-bdvvaa iLYldS"
             >
               <div
-                class="sc-dkPtyc bkijIn"
+                class="sc-gsDJrp kxnSMu"
               >
                 Validade
               </div>
@@ -258,20 +257,20 @@ exports[`test app render test app 1`] = `
               />
             </div>
             <p
-              class="sc-hKwCoD fgeTWz"
+              class="sc-dkPtyc fKvQaK"
             />
           </div>
           <div
-            class="sc-jRQAMF iiFKOE"
+            class="sc-eCImvq iFSVdj"
           >
             <div
-              class="sc-gsDJrp jspQbs"
+              class="sc-bdvvaa iLYldS"
             >
               <div
-                class="sc-dkPtyc bkijIn"
+                class="sc-gsDJrp kxnSMu"
               >
                 <div
-                  class="sc-iCfLBT iTFCE"
+                  class="sc-gKckTs eMICKB"
                 >
                   <p>
                     CVV
@@ -285,18 +284,18 @@ exports[`test app render test app 1`] = `
               />
             </div>
             <p
-              class="sc-hKwCoD fgeTWz"
+              class="sc-dkPtyc fKvQaK"
             />
           </div>
         </div>
         <div
-          class="sc-jRQAMF iiFKOE"
+          class="sc-eCImvq iFSVdj"
         >
           <div
-            class="sc-gsDJrp jspQbs"
+            class="sc-bdvvaa iLYldS"
           >
             <div
-              class="sc-dkPtyc bkijIn"
+              class="sc-gsDJrp kxnSMu"
             >
               Parcelas
             </div>
@@ -322,12 +321,12 @@ exports[`test app render test app 1`] = `
             </select>
           </div>
           <p
-            class="sc-hKwCoD fgeTWz"
+            class="sc-dkPtyc fKvQaK"
           />
         </div>
         <footer>
           <p
-            class="sc-hKwCoD sc-eCImvq fgeTWz jaaeNw"
+            class="sc-dkPtyc sc-hKwCoD fKvQaK eWfjcd"
           />
           <button
             type="submit"
@@ -339,60 +338,60 @@ exports[`test app render test app 1`] = `
     </div>
     <div>
       <div
-        class="sc-fFehDp ivUCAX"
+        class="sc-fotPbf dRUFRD"
       >
         <div
           class="title"
         >
           <div
-            class="sc-fotPbf ceHwgU"
+            class="sc-hBURRC kiyPuZ"
             height="18"
           />
         </div>
         <hr
-          class="sc-bkkfTU bAaWvH"
+          class="sc-fFehDp kZLLgX"
         />
         <div
           class="row"
         >
           <div
-            class="sc-fotPbf caIHhq"
+            class="sc-hBURRC kezXoX"
           />
           <div
-            class="sc-fotPbf caIHhq"
-          />
-        </div>
-        <div
-          class="row"
-        >
-          <div
-            class="sc-fotPbf caIHhq"
-          />
-          <div
-            class="sc-fotPbf caIHhq"
+            class="sc-hBURRC kezXoX"
           />
         </div>
         <div
           class="row"
         >
           <div
-            class="sc-fotPbf caIHhq"
+            class="sc-hBURRC kezXoX"
           />
           <div
-            class="sc-fotPbf caIHhq"
+            class="sc-hBURRC kezXoX"
+          />
+        </div>
+        <div
+          class="row"
+        >
+          <div
+            class="sc-hBURRC kezXoX"
+          />
+          <div
+            class="sc-hBURRC kezXoX"
           />
         </div>
         <hr
-          class="sc-bkkfTU bAaWvH"
+          class="sc-fFehDp kZLLgX"
         />
         <div
           class="row"
         >
           <div
-            class="sc-fotPbf hQwEqN"
+            class="sc-hBURRC eLLzdM"
           />
           <div
-            class="sc-fotPbf hQwEqN"
+            class="sc-hBURRC eLLzdM"
           />
         </div>
       </div>

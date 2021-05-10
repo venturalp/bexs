@@ -1,4 +1,5 @@
 module.exports = {
+  globalSetup: '<rootDir>/src/Commons/tests/Tests.globalSetup.js',
   moduleFileExtensions: ['js', 'json', 'jsx', 'ts', 'tsx', 'node'],
   coverageReporters: ['json-summary', 'text', 'lcov'],
   coverageThreshold: {
